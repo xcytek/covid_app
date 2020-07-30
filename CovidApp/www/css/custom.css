@@ -1,0 +1,118 @@
+body {
+    background-color: #242c4a;
+    color: #8991b7;
+}
+
+.header-section {
+    padding-top: 5px;
+    text-align: center;
+    border-bottom: 1px solid #3c4464;
+    height: 40px;
+}
+
+.header-section img {
+    height: 80%;
+    color: #0b2e13;
+}
+
+.container {
+    width: 80%;
+}
+
+.margin-top-5 {
+    margin-top: 5px;
+}
+
+.margin-top-100 {
+    margin-top: 100px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.margin-top-25 {
+    margin-top: 25px;
+}
+
+.center {
+    text-align: center;
+}
+
+.progress {
+    height: 45px;
+    border-radius: 50px;
+    width: 100%;
+    margin: 0 auto;
+    border: 5px solid #3c4464;
+    background-color: #242c4a;
+}
+
+.bg-success {
+    background-color: #d75fb1 !important;
+    /*background-color: #073607 !important;*/
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.question-title {
+    color: #8991b7;
+    font-size: 28px;
+}
+
+.q-count {
+    font-size: 22px;
+}
+
+.border-bottom-dotted {
+    padding-bottom: 20px;
+    border-bottom: 4px dotted #3c4464;
+}
+
+.question {
+    font-size: 25px;
+    color: white;
+}
+
+.full-btn, .next-btn, .register-btn, input[type=text], input[type=number], input[type=email] {
+    padding: 10px;
+    height: 60px;
+    border-radius: 50px;
+    width: 100%;
+    margin: 10px auto;
+    border: 5px solid #3c4464;
+    background-color: #242c4a;
+    font-size: 20px;
+    color: #8991b7;
+}
+
+.full-btn:visited {
+    background-color: #d75fb1;
+}
+
+.next-btn, .register-btn {
+    position: fixed;
+    bottom: 30px;
+    width: 70%;
+    background-color: #2c8eed;
+    border-color: #157eeb;
+    color: white !important;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.avatar {
+    border-radius: 20px;
+    /*padding: 0 !important;*/
+}
+.avatar img {
+    width: 95%;
+    border-radius: 15px;
+}
+
+.avatar-selected {
+    border: 5px solid #157eeb;
+}
+
+.main-logo-virus {
+    width: 100%;
+}

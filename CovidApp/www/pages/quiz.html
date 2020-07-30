@@ -1,0 +1,104 @@
+<div class="row margin-top-25">
+    <div class="col-md-12">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="6" aria-valuemax="100"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-top-25">
+    <div class="col-md-12 border-bottom-dotted">
+        <h1 class="question-title">
+            Pregunta
+            <span class="q-count">
+                <span class="q-number">1</span>/15
+            </span>
+
+        </h1>
+    </div>
+</div>
+
+<div class="questions">
+    <div class="row margin-top-25">
+        <div class="col-md-12">
+            <p class="question"></p>
+        </div>
+    </div>
+
+    <div class="row margin-top-25">
+        <div class="col-md-12 options"></div>
+    </div>
+</div>
+
+<a class="btn btn-outline-primary next-btn">Siguiente</a>
+
+<script>
+    $(document).ready(function() {
+
+        loadQuestion('start');
+
+        $('.next-btn').click(function (e) {
+            e.preventDefault();
+            loadQuestion('next');
+        });
+
+        /**
+         *
+         * @param action
+         */
+        function loadQuestion(action) {
+
+            let $questionSelector = $('.questions');
+
+            let number = parseInt($questionSelector.find('.question').attr('data-number'));
+
+            if (action === 'start') {
+                number = 1;
+            } else if (action === 'next' && number < 15) {
+                number = number + 1;
+            } else if (action === 'previous' && number > 1) {
+                number = number - 1;
+            } else if (action === 'next' && $('.next-btn').html() === 'Enviar') {
+
+                sendData();
+                return;
+
+            }
+
+            $('.next-btn').html(
+                (number === 15) ? 'Enviar' : 'Siguiente'
+            );
+
+            let question = "q" + number;
+            $questionSelector.find('.question').html(questions[question]['question']);
+            let html = '';
+            $.each(questions[question]['options'], function (k, option) {
+                html += '<a class="btn full-btn">' + option.val + '</a>';
+            });
+            $questionSelector.find('.options').html(html);
+            $questionSelector.find('.question').attr('data-number', number);
+            $('.q-number').html(number);
+            calculateProgressBar(number, 15);
+
+        }
+
+        /**
+         *
+         * @param current
+         * @param total
+         */
+        function calculateProgressBar(current, total) {
+            let percentage = current * 100 / total;
+            $('.progress').find('.progress-bar').attr('aria-valuenow', percentage).css({'width': percentage + "%"});
+        }
+
+        /**
+         *
+         */
+        function sendData() {
+
+            alert('Sending data ...');
+
+        }
+    });
+</script>

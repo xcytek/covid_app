@@ -1,0 +1,49 @@
+<div class="row margin-top-25">
+    <div class="col-md-12 ">
+        <h1 class="question-title">
+            Ingresa tus datos
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <input type="text" name="full_name" placeholder="Nombre completo"/> <br>
+        <input type="number" name="age" placeholder="Edad"/> <br>
+        <input type="email" name="email" placeholder="Correo electronico"/> <br>
+    </div>
+</div>
+<div class="row margin-top-5">
+    <div class="col-md-12">
+        <h4>Selecciona tu avatar</h4>
+    </div>
+</div>
+<div class="row margin-top-5">
+    <div class="col avatar">
+        <a href="#" class="select-avatar" data-avatar="man">
+            <img src="../images/man-avatar.jpg" alt="Man Avatar">
+        </a>
+    </div>
+    <div class="col avatar">
+        <a href="#" class="select-avatar" data-avatar="woman">
+            <img src="../images/woman-avatar.jpg" alt="Woman Avatar">
+        </a>
+    </div>
+</div>
+
+<a class="btn btn-outline-primary register-btn">Registrar</a>
+
+<script>
+    $(document).ready(function() {
+        $('.avatar').click(function (e) {
+            e.preventDefault();
+            $('.avatar').removeClass('avatar-selected');
+            $(this).addClass('avatar-selected');
+        });
+
+        $('.register-btn').click(function (e) {
+            e.preventDefault();
+            loadPage('quiz');
+        });
+    });
+</script>
