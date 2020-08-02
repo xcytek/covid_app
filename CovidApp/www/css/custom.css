@@ -3,6 +3,10 @@ body {
     color: #8991b7;
 }
 
+textarea:focus, input:focus, select:focus{
+    outline: none;
+}
+
 .header-section {
     padding-top: 5px;
     text-align: center;
@@ -74,16 +78,22 @@ body {
     color: white;
 }
 
-.full-btn, .next-btn, .register-btn, input[type=text], input[type=number], input[type=email] {
+.full-btn, .next-btn, .register-btn, input[type=text], input[type=number], input[type=email], select {
     padding: 10px;
     height: 60px;
     border-radius: 50px;
     width: 100%;
     margin: 10px auto;
-    border: 5px solid #3c4464;
+    border: 5px solid #224668;
     background-color: #242c4a;
     font-size: 20px;
     color: #8991b7;
+}
+
+input[type=text], input[type=number], input[type=email], select {
+    height: 50px;
+    font-size: 16px;
+    border: 3px solid #224668;
 }
 
 .full-btn:visited {
@@ -115,4 +125,8 @@ body {
 
 .main-logo-virus {
     width: 100%;
+}
+
+.button-selected {
+    border-color: #d75fb1;
 }

@@ -11,6 +11,10 @@ $(document).ready(function() {
 
 });
 
+let api_url = 'http://198.199.93.131/covid19/Covid.php';
+
+let data_session = {};
+
 let questions = {
     "q1": {
         "category": "basic",
@@ -138,5 +142,27 @@ let questions = {
 function loadPage(page) {
 
     $('#main-container').load("./pages/" + page + '.html');
+
+}
+
+function sendRegister(data) {
+
+    $.ajax({
+        url: api_url + "?action=save_patient",
+        type: "GET",
+        data: data ,
+        success: function(response) {
+
+            if (response.code === 201) {
+
+                loadPage('quiz');
+
+            }
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
+    });
 
 }

@@ -8,9 +8,43 @@
 
 <div class="row">
     <div class="col-md-12">
-        <input type="text" name="full_name" placeholder="Nombre completo"/> <br>
+        <input type="text" name="name" placeholder="Nombre completo"/> <br>
         <input type="number" name="age" placeholder="Edad"/> <br>
-        <input type="email" name="email" placeholder="Correo electronico"/> <br>
+        <select name="state">
+            <option value="na">--Elije Estado--</option>
+            <option value="1">Aguascalientes</option>
+            <option value="2">Baja California</option>
+            <option value="3">Baja California Sur</option>
+            <option value="4">Campeche</option>
+            <option value="5">Coahuila</option>
+            <option value="6">Colima</option>
+            <option value="7">Chiapas</option>
+            <option value="8">Chihuahua</option>
+            <option value="9">Cdmx</option>
+            <option value="10">Durango</option>
+            <option value="11">Guanajuato</option>
+            <option value="12">Guerrero</option>
+            <option value="13">Hidalgo</option>
+            <option value="14">Jalisco</option>
+            <option value="15">Edo de Mexico</option>
+            <option value="16">Michoacan</option>
+            <option value="17">Morelos</option>
+            <option value="18">Nayarit</option>
+            <option value="19">Nuevo Leon</option>
+            <option value="20">Oaxaca</option>
+            <option value="21">Puebla</option>
+            <option value="22">Queretaro</option>
+            <option value="23">Quintana Roo</option>
+            <option value="24">San Luis Potosi</option>
+            <option value="25">Sinaloa</option>
+            <option value="26">Sonora</option>
+            <option value="27">Tabasco</option>
+            <option value="28">Tamaulipas</option>
+            <option value="29">Tlaxcala</option>
+            <option value="30">Veracruz</option>
+            <option value="31">Yucatan</option>
+            <option value="32">Zacatecas</option>
+        </select>
     </div>
 </div>
 <div class="row margin-top-5">
@@ -19,13 +53,13 @@
     </div>
 </div>
 <div class="row margin-top-5">
-    <div class="col avatar">
-        <a href="#" class="select-avatar" data-avatar="man">
+    <div class="col avatar"  data-avatar="man">
+        <a href="#" class="select-avatar">
             <img src="../images/man-avatar.jpg" alt="Man Avatar">
         </a>
     </div>
-    <div class="col avatar">
-        <a href="#" class="select-avatar" data-avatar="woman">
+    <div class="col avatar" data-avatar="woman">
+        <a href="#" class="select-avatar">
             <img src="../images/woman-avatar.jpg" alt="Woman Avatar">
         </a>
     </div>
@@ -43,7 +77,19 @@
 
         $('.register-btn').click(function (e) {
             e.preventDefault();
+
+            let data = {
+                "name": $('input[name=name]').val(),
+                "age": $('input[name=age]').val(),
+                "place": $('select[name=state] option:selected').val(),
+                "gender": $('.avatar-selected').attr('data-avatar'),
+                "avatar": $('.avatar-selected').attr('data-avatar') + 'avatar.jpg'
+            };
+
+            localStorage.setItem('covid_user_session', JSON.stringify(data));
+
             loadPage('quiz');
+
         });
     });
 </script>

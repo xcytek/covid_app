@@ -42,6 +42,19 @@
             loadQuestion('next');
         });
 
+        $(document).on('click', '.q-option', function(e) {
+            e.preventDefault();
+            let value  = $(this).attr('data-value');
+            let q_number = $(this).attr('data-q-number');
+            $(this).addClass('button-selected');
+
+            // Save option data in localstorage
+            let user_session = JSON.parse(localStorage.getItem('covid_user_session'));
+            user_session['q' + q_number] = value;
+            localStorage.setItem('covid_user_session', JSON.stringify(user_session));
+
+        });
+
         /**
          *
          * @param action
@@ -49,6 +62,8 @@
         function loadQuestion(action) {
 
             let $questionSelector = $('.questions');
+
+            $questionSelector.find('.options').empty();
 
             let number = parseInt($questionSelector.find('.question').attr('data-number'));
 
@@ -73,9 +88,9 @@
             $questionSelector.find('.question').html(questions[question]['question']);
             let html = '';
             $.each(questions[question]['options'], function (k, option) {
-                html += '<a class="btn full-btn">' + option.val + '</a>';
+                html += '<a class="btn full-btn q-option" data-q-number="' + number + '" data-value="' + option.val + '">' + option.val + '</a>';
             });
-            $questionSelector.find('.options').html(html);
+            $questionSelector.find('.options').append(html);
             $questionSelector.find('.question').attr('data-number', number);
             $('.q-number').html(number);
             calculateProgressBar(number, 15);
@@ -96,9 +111,10 @@
          *
          */
         function sendData() {
-
-            alert('Sending data ...');
-
+            sendRegister(JSON.parse(localStorage.getItem('covid_user_session')));
+            loadPage('start');
+            localStorage.clear();
+            alert('Datos enviados. Gracias.');
         }
     });
 </script>
