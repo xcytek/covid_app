@@ -1,8 +1,8 @@
 {
-  "name": "helloworld",
-  "displayName": "HelloCordova",
+  "name": "covid19",
+  "displayName": "Covid 19 Analisis",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "Determina si un paciente es caso sospechoso de COVID19 en base a preguntas.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
   "keywords": [
     "ecosystem:cordova"
   ],
-  "author": "Apache Cordova Team",
+  "author": "Alex Acosta",
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-android": "^8.1.0",
